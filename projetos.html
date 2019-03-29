@@ -1,0 +1,33 @@
+---
+layout: default
+title: Projetos
+---
+<h1>Projetos</h1>
+
+{% assign projetos-agrupados = site.projetos | group_by: "status" %}
+{{ projetos-agrupados }}
+
+{% for group in projetos-agrupados %}
+    <h4>{{ group.name }}</h4>
+    {% for projeto in group.items %}
+        <h5>{{ projeto.title }}</h2>
+        <p>{{ projeto.description }} <a href="{{ projeto.url }}">detalhes</a></p>
+    {% endfor %}
+{% endfor %}
+
+
+
+
+<h2>Em andamento</h2>
+{% assign projetos-em-desenvolvimento = site.projetos | where: "status","em desenvolvimento" %}
+{% for projeto in projetos-em-desenvolvimento %}
+    <h2>{{ projeto.title }}</h2>
+    <p>{{ projeto.description }} <a href="{{ projeto.url }}">detalhes</a></p>
+{% endfor %}
+
+<h2>Concluídos</h2>
+{% assign projetos-concluidos = site.projetos | where: "status","concluido" %}
+{% for projeto in projetos-concluidos %}
+    <h2>{{ projeto.title }}</h2>
+    <p>{{ projeto.description }} <a href="{{ projeto.url }}">detalhes</a></p>
+{% endfor %}
