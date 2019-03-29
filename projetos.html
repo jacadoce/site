@@ -11,7 +11,7 @@ title: Projetos
     <h4>{{ group.name }}</h4>
     {% for projeto in group.items %}
         <h5>{{ projeto.title }}</h2>
-        <p>{{ projeto.description }} <a href="{{baseurl}}{{ projeto.url }}">detalhes</a></p>
+        <p>{{ projeto.description }} <a href="{{site.baseurl}}{{ projeto.url }}">detalhes</a></p>
     {% endfor %}
 {% endfor %}
 
